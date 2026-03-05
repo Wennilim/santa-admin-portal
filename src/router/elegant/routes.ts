@@ -40,6 +40,28 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'draw',
+    path: '/draw',
+    component: 'layout.base$view.draw',
+    meta: {
+      title: 'draw',
+      i18nKey: 'route.draw',
+      icon: 'mdi:gift',
+      order: 2
+    }
+  },
+  {
+    name: 'event',
+    path: '/event',
+    component: 'layout.base$view.event',
+    meta: {
+      title: 'event',
+      i18nKey: 'route.event',
+      icon: 'mdi:calendar',
+      order: 3
+    }
+  },
+  {
     name: 'home',
     path: '/home',
     component: 'layout.base$view.home',

@@ -1,6 +1,6 @@
 const local: App.I18n.Schema = {
   system: {
-    title: 'SoybeanAdmin',
+    title: 'SantaAdmin',
     updateTitle: 'System Version Update Notification',
     updateContent: 'A new version of the system has been detected. Do you want to refresh the page immediately?',
     updateConfirm: 'Refresh immediately',
@@ -229,13 +229,15 @@ const local: App.I18n.Schema = {
     404: 'Page Not Found',
     500: 'Server Error',
     'iframe-page': 'Iframe',
-    home: 'Home'
+    home: 'Dashboard',
+    draw: 'Draw & Wishlist',
+    event: 'Event Setting'
   },
   page: {
     login: {
       common: {
         loginOrRegister: 'Login / Register',
-        userNamePlaceholder: 'Please enter user name',
+        userNamePlaceholder: 'Please enter username',
         phonePlaceholder: 'Please enter phone number',
         codePlaceholder: 'Please enter verification code',
         passwordPlaceholder: 'Please enter password',
@@ -248,7 +250,7 @@ const local: App.I18n.Schema = {
         welcomeBack: 'Welcome back, {userName} !'
       },
       pwdLogin: {
-        title: 'Password Login',
+        title: 'Login',
         rememberMe: 'Remember me',
         forgetPassword: 'Forget password?',
         register: 'Register',
@@ -288,6 +290,13 @@ const local: App.I18n.Schema = {
       message: 'Message',
       downloadCount: 'Download Count',
       registerCount: 'Register Count',
+      spinStatus: 'Spin Status',
+      hasSpin: 'Has Spin',
+      hasNotSpin: 'Has Not Spin',
+      wishlistStatus: 'Wishlist Status',
+      wishlistSent: 'Wishlist Sent',
+      wishlistNotSent: 'Wishlist Not Sent',
+      sendEmail: 'Send Email',
       schedule: 'Work and rest Schedule',
       study: 'Study',
       work: 'Work',
@@ -306,13 +315,27 @@ const local: App.I18n.Schema = {
         desc5: 'Soybean just wrote some of the workbench pages casually, and it was enough to see!'
       },
       creativity: 'Creativity'
+    },
+    event: {
+      title: 'Event Setting',
+      budget: 'Gift Budget',
+      date: 'Event Date',
+      location: 'Event Location',
+      dressColor: 'Dress Color',
+      itinerary: 'Itinerary',
+      itineraryTime: 'Time',
+      itineraryTitle: 'Title',
+      itineraryContent: 'Content',
+      addItinerary: 'Add Itinerary',
+      save: 'Save',
+      saveSuccess: 'Saved Successfully'
     }
   },
   form: {
     required: 'Cannot be empty',
     userName: {
-      required: 'Please enter user name',
-      invalid: 'User name format is incorrect'
+      required: 'Please enter username',
+      invalid: 'Username format is incorrect'
     },
     phone: {
       required: 'Please enter phone number',

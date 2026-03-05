@@ -1,6 +1,6 @@
 const local: App.I18n.Schema = {
   system: {
-    title: 'Soybean 管理系统',
+    title: 'Santa 后台管理系统',
     updateTitle: '系统版本更新通知',
     updateContent: '检测到系统有新版本发布，是否立即刷新页面？',
     updateConfirm: '立即刷新',
@@ -225,7 +225,9 @@ const local: App.I18n.Schema = {
     404: '页面不存在',
     500: '服务器错误',
     'iframe-page': '外链页面',
-    home: '首页'
+    home: '仪表盘',
+    draw: '抽奖 & 愿望',
+    event: '活动设置'
   },
   page: {
     login: {
@@ -244,7 +246,7 @@ const local: App.I18n.Schema = {
         welcomeBack: '欢迎回来，{userName} ！'
       },
       pwdLogin: {
-        title: '密码登录',
+        title: '登录',
         rememberMe: '记住我',
         forgetPassword: '忘记密码？',
         register: '注册账号',
@@ -284,6 +286,13 @@ const local: App.I18n.Schema = {
       message: '消息',
       downloadCount: '下载量',
       registerCount: '注册量',
+      spinStatus: '抽奖状态',
+      hasSpin: '已抽奖',
+      hasNotSpin: '未抽奖',
+      wishlistStatus: '愿望单状态',
+      wishlistSent: '已发愿望单',
+      wishlistNotSent: '未发愿望单',
+      sendEmail: '发送邮件',
       schedule: '作息安排',
       study: '学习',
       work: '工作',
@@ -302,6 +311,20 @@ const local: App.I18n.Schema = {
         desc5: 'Soybean 刚才把工作台页面随便写了一些，凑合能看了！'
       },
       creativity: '创意'
+    },
+    event: {
+      title: '活动设置',
+      budget: '礼物预算',
+      date: '活动日期',
+      location: '活动地点',
+      dressColor: '着装颜色',
+      itinerary: '行程',
+      itineraryTime: '时间',
+      itineraryTitle: '行程标题',
+      itineraryContent: '行程内容',
+      addItinerary: '添加行程',
+      save: '保存',
+      saveSuccess: '保存成功'
     }
   },
   form: {

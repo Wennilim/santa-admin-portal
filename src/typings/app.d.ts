@@ -536,6 +536,13 @@ declare namespace App {
           message: string;
           downloadCount: string;
           registerCount: string;
+          spinStatus: string;
+          hasSpin: string;
+          hasNotSpin: string;
+          wishlistStatus: string;
+          wishlistSent: string;
+          wishlistNotSent: string;
+          sendEmail: string;
           schedule: string;
           study: string;
           work: string;
@@ -554,6 +561,20 @@ declare namespace App {
             desc5: string;
           };
           creativity: string;
+        };
+        event: {
+          title: string;
+          budget: string;
+          date: string;
+          location: string;
+          dressColor: string;
+          itinerary: string;
+          itineraryTime: string;
+          itineraryTitle: string;
+          itineraryContent: string;
+          addItinerary: string;
+          save: string;
+          saveSuccess: string;
         };
       };
       form: {
