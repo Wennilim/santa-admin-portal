@@ -4,18 +4,18 @@ import { useAuthStore } from '@/store/modules/auth';
 import { localStg } from '@/utils/storage';
 import { getServiceBaseURL } from '@/utils/service';
 import { $t } from '@/locales';
-import { getAuthorization, handleExpiredRequest, showErrorMsg } from './shared';
+import { getAuthorization, handleExpiredRequest } from './shared';
 import type { RequestInstanceState } from './type';
 
-const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'Y';
+const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'N';
 const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
 
 export const request = createFlatRequest(
   {
-    baseURL,
-    headers: {
-      apifoxToken: 'XL299LiMEDZ0H5h3A29PxwQXdMJqWyY2'
-    }
+    baseURL
+    // headers: {
+    //   apifoxToken: 'XL299LiMEDZ0H5h3A29PxwQXdMJqWyY2'
+    // }
   },
   {
     defaultState: {
@@ -23,7 +23,10 @@ export const request = createFlatRequest(
       refreshTokenPromise: null
     } as RequestInstanceState,
     transform(response: AxiosResponse<App.Service.Response<any>>) {
-      return response.data.data;
+      if (response.data && typeof response.data === 'object' && 'data' in (response.data as any)) {
+        return response.data.data;
+      }
+      return response.data;
     },
     async onRequest(config) {
       const Authorization = getAuthorization();
@@ -34,7 +37,10 @@ export const request = createFlatRequest(
     isBackendSuccess(response) {
       // when the backend response code is "0000"(default), it means the request is success
       // to change this logic by yourself, you can modify the `VITE_SERVICE_SUCCESS_CODE` in `.env` file
-      return String(response.data.code) === import.meta.env.VITE_SERVICE_SUCCESS_CODE;
+      if (response.data && typeof response.data === 'object' && 'code' in (response.data as any)) {
+        return String(response.data.code) === import.meta.env.VITE_SERVICE_SUCCESS_CODE;
+      }
+      return response.status >= 200 && response.status < 300;
     },
     async onBackendFail(response, instance) {
       const authStore = useAuthStore();
@@ -97,33 +103,33 @@ export const request = createFlatRequest(
       }
 
       return null;
-    },
-    onError(error) {
-      // when the request is fail, you can show error message
-
-      let message = error.message;
-      let backendErrorCode = '';
-
-      // get backend error message and code
-      if (error.code === BACKEND_ERROR_CODE) {
-        message = error.response?.data?.msg || message;
-        backendErrorCode = String(error.response?.data?.code || '');
-      }
-
-      // the error message is displayed in the modal
-      const modalLogoutCodes = import.meta.env.VITE_SERVICE_MODAL_LOGOUT_CODES?.split(',') || [];
-      if (modalLogoutCodes.includes(backendErrorCode)) {
-        return;
-      }
-
-      // when the token is expired, refresh token and retry request, so no need to show error message
-      const expiredTokenCodes = import.meta.env.VITE_SERVICE_EXPIRED_TOKEN_CODES?.split(',') || [];
-      if (expiredTokenCodes.includes(backendErrorCode)) {
-        return;
-      }
-
-      showErrorMsg(request.state, message);
     }
+    // onError(error) {
+    //   // when the request is fail, you can show error message
+
+    //   let message = error.message;
+    //   let backendErrorCode = '';
+
+    //   // get backend error message and code
+    //   if (error.code === BACKEND_ERROR_CODE) {
+    //     message = error.response?.data?.msg || message;
+    //     backendErrorCode = String(error.response?.data?.code || '');
+    //   }
+
+    //   // the error message is displayed in the modal
+    //   const modalLogoutCodes = import.meta.env.VITE_SERVICE_MODAL_LOGOUT_CODES?.split(',') || [];
+    //   if (modalLogoutCodes.includes(backendErrorCode)) {
+    //     return;
+    //   }
+
+    //   // when the token is expired, refresh token and retry request, so no need to show error message
+    //   const expiredTokenCodes = import.meta.env.VITE_SERVICE_EXPIRED_TOKEN_CODES?.split(',') || [];
+    //   if (expiredTokenCodes.includes(backendErrorCode)) {
+    //     return;
+    //   }
+
+    //   showErrorMsg(request.state, message);
+    // }
   }
 );
 

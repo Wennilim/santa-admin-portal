@@ -2,7 +2,7 @@ import { computed, reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
 import { useLoading } from '@sa/hooks';
-import { fetchGetUserInfo, fetchLogin } from '@/service/api';
+import { fetchLogin } from '@/service/api';
 import { useRouterPush } from '@/hooks/common/router';
 import { localStg } from '@/utils/storage';
 import { SetupStoreId } from '@/enum';
@@ -128,16 +128,40 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     endLoading();
   }
 
-  async function loginByToken(loginToken: Api.Auth.LoginToken) {
-    // 1. stored in the localStorage, the later requests need it in headers
-    localStg.set('token', loginToken.token);
-    localStg.set('refreshToken', loginToken.refreshToken);
+  async function loginByToken(loginToken: any) {
+    // 1. extract token and refreshToken from backend response
+    const targetToken = loginToken.access_token || loginToken.token;
+    const targetRefreshToken = loginToken.refresh_token || loginToken.refreshToken || '';
 
-    // 2. get user info
+    if (!targetToken) {
+      return false;
+    }
+
+    // 2. stored in the localStorage, the later requests need it in headers
+    localStg.set('token', targetToken);
+    localStg.set('refreshToken', targetRefreshToken);
+
+    // 3. get user info from login response if available
+    if (loginToken.user) {
+      const user = loginToken.user;
+      const roles = [user.role === 'admin' ? 'R_SUPER' : user.role];
+
+      Object.assign(userInfo, {
+        userId: String(user.id),
+        userName: user.fullname,
+        roles,
+        buttons: []
+      });
+
+      token.value = targetToken;
+      return true;
+    }
+
+    // fallback to original flow if user info is not in login response
     const pass = await getUserInfo();
 
     if (pass) {
-      token.value = loginToken.token;
+      token.value = targetToken;
 
       return true;
     }
@@ -146,6 +170,18 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   }
 
   async function getUserInfo() {
+    // If the backend doesn't have this API, provide default/mock info
+    const mockInfo: Api.Auth.UserInfo = {
+      userId: '1',
+      userName: 'admin',
+      roles: ['R_SUPER'],
+      buttons: []
+    };
+
+    Object.assign(userInfo, mockInfo);
+    return true;
+
+    /*
     const { data: info, error } = await fetchGetUserInfo();
 
     if (!error) {
@@ -156,6 +192,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     }
 
     return false;
+    */
   }
 
   async function initUserInfo() {

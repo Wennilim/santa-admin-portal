@@ -561,6 +561,12 @@ declare namespace App {
             desc5: string;
           };
           creativity: string;
+          noticeMsg: string;
+          revealDraw: string;
+          drawNotFound: string;
+          hasSubmitGift: string;
+          hasNotSubmitGift: string;
+          hasSubmitGiftStatus: string;
         };
         event: {
           title: string;

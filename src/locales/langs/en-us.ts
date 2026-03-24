@@ -314,7 +314,13 @@ const local: App.I18n.Schema = {
         desc4: 'Soybean is busy writing project documentation for soybean-admin!',
         desc5: 'Soybean just wrote some of the workbench pages casually, and it was enough to see!'
       },
-      creativity: 'Creativity'
+      creativity: 'Creativity',
+      noticeMsg: "Christmas gift exchange list has been generated successfully! It's ready for reveal.",
+      revealDraw: 'Reveal Draw',
+      drawNotFound: 'Draw not found',
+      hasSubmitGift: 'Has Submit Gift',
+      hasNotSubmitGift: 'Has Not Submit Gift',
+      hasSubmitGiftStatus: 'Has Submit Gift?'
     },
     event: {
       title: 'Event Setting',

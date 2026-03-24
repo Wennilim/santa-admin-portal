@@ -310,7 +310,13 @@ const local: App.I18n.Schema = {
         desc4: 'Soybean 正在忙于为soybean-admin写项目说明文档！',
         desc5: 'Soybean 刚才把工作台页面随便写了一些，凑合能看了！'
       },
-      creativity: '创意'
+      creativity: '创意',
+      noticeMsg: '圣诞交换礼物名单已生成，快来揭晓吧！',
+      revealDraw: '揭晓名单',
+      drawNotFound: '未找到抽奖',
+      hasSubmitGift: '已提交礼物',
+      hasNotSubmitGift: '未提交礼物',
+      hasSubmitGiftStatus: '提交礼物了吗?'
     },
     event: {
       title: '活动设置',
