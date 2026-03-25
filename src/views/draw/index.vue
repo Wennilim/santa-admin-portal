@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { h, onMounted, ref } from 'vue';
+import { computed, h, onMounted, ref } from 'vue';
 import { NCheckbox, NTag } from 'naive-ui';
 import type { DataTableColumns } from 'naive-ui';
 import { type RowData } from 'naive-ui/es/data-table/src/interface';
@@ -19,8 +19,15 @@ async function getData() {
   endLoading();
 }
 
-onMounted(() => {
-  getData();
+onMounted(() => getData());
+
+const sortedData = computed(() => {
+  return [...data.value].sort((a, b) => {
+    if (a.hasSubmitGift === b.hasSubmitGift) {
+      return 0;
+    }
+    return a.hasSubmitGift ? -1 : 1;
+  });
 });
 
 const columns: DataTableColumns<RowData> = [
@@ -100,7 +107,7 @@ const columns: DataTableColumns<RowData> = [
       <NDataTable
         :loading="loading"
         :columns="columns"
-        :data="data"
+        :data="sortedData"
         :pagination="{ pageSize: 10 }"
         :bordered="false"
         striped

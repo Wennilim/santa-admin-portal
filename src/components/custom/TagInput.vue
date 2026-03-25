@@ -6,6 +6,8 @@ interface Props {
   placeholder?: string;
 }
 
+const MAX_TAGS = 3;
+
 const props = defineProps<Props>();
 
 const emit = defineEmits<{
@@ -29,6 +31,11 @@ const hexRegex = /^#([0-9A-Fa-f]{6})$/;
 function addTag() {
   const value = inputValue.value.trim();
 
+  if (tags.value.length >= MAX_TAGS) {
+    inputValue.value = '';
+    return;
+  }
+
   if (!hexRegex.test(value)) {
     inputValue.value = '';
     return;
@@ -48,6 +55,13 @@ function removeTag(tag: string) {
   tags.value = newTags;
   emit('update:modelValue', newTags);
 }
+
+watch(
+  () => props.modelValue,
+  val => {
+    tags.value = val.slice(0, MAX_TAGS);
+  }
+);
 </script>
 
 <template>
@@ -68,6 +82,7 @@ function removeTag(tag: string) {
       />
 
       <NInput
+        v-if="tags.length < MAX_TAGS"
         v-model:value="inputValue"
         size="small"
         class="w-120px border-none"

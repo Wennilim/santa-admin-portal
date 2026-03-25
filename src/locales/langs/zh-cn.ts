@@ -317,7 +317,8 @@ const local: App.I18n.Schema = {
       drawNotFound: '未找到抽奖',
       hasSubmitGift: '已提交礼物',
       hasNotSubmitGift: '未提交礼物',
-      hasSubmitGiftStatus: '提交礼物了吗?'
+      hasSubmitGiftStatus: '提交礼物了吗?',
+      howManyUserSubmitGiftStatus: '有多少用户提交了礼物?'
     },
     event: {
       title: '活动设置',

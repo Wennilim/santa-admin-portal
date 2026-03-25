@@ -568,6 +568,7 @@ declare namespace App {
           hasSubmitGift: string;
           hasNotSubmitGift: string;
           hasSubmitGiftStatus: string;
+          howManyUserSubmitGiftStatus: string;
         };
         event: {
           title: string;

@@ -321,7 +321,8 @@ const local: App.I18n.Schema = {
       drawNotFound: 'Draw not found',
       hasSubmitGift: 'Has Submit Gift',
       hasNotSubmitGift: 'Has Not Submit Gift',
-      hasSubmitGiftStatus: 'Has Submit Gift?'
+      hasSubmitGiftStatus: 'Has Submit Gift?',
+      howManyUserSubmitGiftStatus: 'How many user submit gift status?'
     },
     event: {
       title: 'Event Setting',
