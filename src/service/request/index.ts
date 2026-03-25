@@ -4,11 +4,13 @@ import { useAuthStore } from '@/store/modules/auth';
 import { localStg } from '@/utils/storage';
 import { getServiceBaseURL } from '@/utils/service';
 import { $t } from '@/locales';
-import { getAuthorization, handleExpiredRequest, logoutModal } from './shared';
+import { getAuthorization, handleExpiredRequest, logoutModal, showErrorMsg } from './shared';
 import type { RequestInstanceState } from './type';
 
 const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'N';
 const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
+
+const isLogin = window.location.pathname.includes('/login');
 
 export const request = createFlatRequest(
   {
@@ -114,6 +116,9 @@ export const request = createFlatRequest(
 
       if (error.response?.status === 401) {
         logoutModal($t('common.sessionTimeout'), error.response?.status);
+      }
+      if (error.response?.status === 404 && isLogin) {
+        showErrorMsg(request.state, error.response?.data?.msg || $t('common.invalidUsernameOrPassword'));
       }
     }
   }

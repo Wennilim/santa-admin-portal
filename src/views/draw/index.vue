@@ -38,13 +38,13 @@ const columns: DataTableColumns<RowData> = [
     width: 60
   },
   {
-    title: 'Name',
+    title: $t('page.home.name'),
     key: 'fullname',
     align: 'center',
     width: 120
   },
   {
-    title: 'Email',
+    title: () => $t('page.home.email'),
     key: 'email',
     align: 'center',
     width: 200

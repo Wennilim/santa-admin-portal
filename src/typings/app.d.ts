@@ -362,6 +362,7 @@ declare namespace App {
           no: string;
         };
         sessionTimeout: string;
+        invalidUsernameOrPassword: string;
       };
       request: {
         logout: string;
@@ -569,6 +570,8 @@ declare namespace App {
           hasNotSubmitGift: string;
           hasSubmitGiftStatus: string;
           howManyUserSubmitGiftStatus: string;
+          name: string;
+          email: string;
         };
         event: {
           title: string;

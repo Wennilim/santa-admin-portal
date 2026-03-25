@@ -49,7 +49,8 @@ const local: App.I18n.Schema = {
       yes: 'Yes',
       no: 'No'
     },
-    sessionTimeout: 'Session timeout. Please login again.'
+    sessionTimeout: 'Session timeout. Please login again.',
+    invalidUsernameOrPassword: 'Invalid username or password'
   },
   request: {
     logout: 'Logout user after request failed',
@@ -322,7 +323,9 @@ const local: App.I18n.Schema = {
       hasSubmitGift: 'Has Submit Gift',
       hasNotSubmitGift: 'Has Not Submit Gift',
       hasSubmitGiftStatus: 'Has Submit Gift?',
-      howManyUserSubmitGiftStatus: 'How many user submit gift status?'
+      howManyUserSubmitGiftStatus: 'How many user submit gift status?',
+      name: 'Name',
+      email: 'Email'
     },
     event: {
       title: 'Event Setting',

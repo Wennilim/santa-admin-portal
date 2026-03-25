@@ -49,7 +49,8 @@ const local: App.I18n.Schema = {
       yes: '是',
       no: '否'
     },
-    sessionTimeout: '会话超时，请重新登录'
+    sessionTimeout: '会话超时，请重新登录',
+    invalidUsernameOrPassword: '用户名或密码错误'
   },
   request: {
     logout: '请求失败后登出用户',
@@ -318,7 +319,9 @@ const local: App.I18n.Schema = {
       hasSubmitGift: '已提交礼物',
       hasNotSubmitGift: '未提交礼物',
       hasSubmitGiftStatus: '提交礼物了吗?',
-      howManyUserSubmitGiftStatus: '有多少用户提交了礼物?'
+      howManyUserSubmitGiftStatus: '有多少用户提交了礼物?',
+      name: '姓名',
+      email: '邮箱'
     },
     event: {
       title: '活动设置',
