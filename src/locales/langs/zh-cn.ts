@@ -48,7 +48,8 @@ const local: App.I18n.Schema = {
     yesOrNo: {
       yes: '是',
       no: '否'
-    }
+    },
+    sessionTimeout: '会话超时，请重新登录'
   },
   request: {
     logout: '请求失败后登出用户',

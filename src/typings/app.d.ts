@@ -361,6 +361,7 @@ declare namespace App {
           yes: string;
           no: string;
         };
+        sessionTimeout: string;
       };
       request: {
         logout: string;

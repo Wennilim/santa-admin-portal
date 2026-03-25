@@ -1,5 +1,6 @@
 import { useAuthStore } from '@/store/modules/auth';
 import { localStg } from '@/utils/storage';
+import { $t } from '@/locales';
 import { fetchRefreshToken } from '../api';
 import type { RequestInstanceState } from './type';
 
@@ -61,4 +62,22 @@ export function showErrorMsg(state: RequestInstanceState, message: string) {
       }
     });
   }
+}
+
+export function logoutModal(message: string, code: number) {
+  const { resetStore } = useAuthStore();
+
+  window.$dialog?.error({
+    title: `${$t('common.error')} ${code}`,
+    content: message,
+    positiveText: $t('common.confirm'),
+    maskClosable: false,
+    closeOnEsc: false,
+    onPositiveClick() {
+      resetStore();
+    },
+    onClose() {
+      resetStore();
+    }
+  });
 }

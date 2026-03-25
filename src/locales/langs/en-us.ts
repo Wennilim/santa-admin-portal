@@ -48,7 +48,8 @@ const local: App.I18n.Schema = {
     yesOrNo: {
       yes: 'Yes',
       no: 'No'
-    }
+    },
+    sessionTimeout: 'Session timeout. Please login again.'
   },
   request: {
     logout: 'Logout user after request failed',
