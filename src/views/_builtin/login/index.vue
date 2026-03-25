@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import type { Component } from 'vue';
+import { computed } from 'vue';
 import { getPaletteColorByNumber, mixColor } from '@sa/color';
 import { loginModuleRecord } from '@/constants/app';
-// import { useAppStore } from '@/store/modules/app';
+import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
 import { $t } from '@/locales';
-import PwdLogin from './modules/pwd-login.vue';
+import BindWechat from './modules/bind-wechat.vue';
 import CodeLogin from './modules/code-login.vue';
+import PwdLogin from './modules/pwd-login.vue';
 import Register from './modules/register.vue';
 import ResetPwd from './modules/reset-pwd.vue';
-import BindWechat from './modules/bind-wechat.vue';
 
 interface Props {
-  /** The login module */
   module?: UnionKey.LoginModule;
 }
 
 const props = defineProps<Props>();
 
-// const appStore = useAppStore();
+const appStore = useAppStore();
+
 const themeStore = useThemeStore();
 
 interface LoginModule {
@@ -59,21 +59,13 @@ const bgColor = computed(() => {
           <SystemLogo class="size-64px lt-sm:size-48px" />
           <h3 class="text-28px text-primary font-500 lt-sm:text-22px">{{ $t('system.title') }}</h3>
           <div class="i-flex-col">
-            <!--
- <ThemeSchemaSwitch
-              :theme-schema="themeStore.themeScheme"
-              :show-tooltip="false"
-              class="text-20px lt-sm:text-18px"
-              @switch="themeStore.toggleThemeScheme"
-            />
             <LangSwitch
               v-if="themeStore.header.multilingual.visible"
               :lang="appStore.locale"
               :lang-options="appStore.localeOptions"
               :show-tooltip="false"
               @change-lang="appStore.changeLocale"
-            /> 
--->
+            />
           </div>
         </header>
         <main class="pt-24px">
