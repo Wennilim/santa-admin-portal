@@ -4,7 +4,7 @@ import { useAuthStore } from '@/store/modules/auth';
 import { localStg } from '@/utils/storage';
 import { getServiceBaseURL } from '@/utils/service';
 import { $t } from '@/locales';
-import { getAuthorization, handleExpiredRequest, logoutModal, showErrorMsg } from './shared';
+import { getAuthorization, handleExpiredRequest, logoutModal } from './shared';
 import type { RequestInstanceState } from './type';
 
 const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'N';
@@ -92,12 +92,11 @@ export const request = createFlatRequest(
     onError(error) {
       // when the request is fail, you can show error message
 
-      let message = error.message;
       let backendErrorCode = '';
 
       // get backend error message and code
       if (error.code === BACKEND_ERROR_CODE) {
-        message = error.response?.data?.msg || message;
+        // message = error.response?.data?.msg || message;
         backendErrorCode = String(error.response?.data?.code || '');
       }
 
@@ -115,8 +114,6 @@ export const request = createFlatRequest(
 
       if (error.response?.status === 401) {
         logoutModal($t('common.sessionTimeout'), error.response?.status);
-      } else {
-        showErrorMsg(request.state, message);
       }
     }
   }
