@@ -229,7 +229,8 @@ const local: App.I18n.Schema = {
     'iframe-page': '外链页面',
     home: '仪表盘',
     draw: '抽奖 & 愿望',
-    event: '活动设置'
+    event: '活动设置',
+    feedback: '反馈'
   },
   page: {
     login: {
@@ -336,6 +337,19 @@ const local: App.I18n.Schema = {
       addItinerary: '添加行程',
       save: '保存',
       saveSuccess: '保存成功'
+    },
+    feedback: {
+      title: '反馈仪表盘',
+      selectYear: '选择年份',
+      overallSatisfaction: '整体满意度',
+      satisfied: '满意',
+      neutral: '中立',
+      dissatisfied: '不满意',
+      activitySatisfaction: '各活动满意度',
+      futureExpectations: '未来活动期望',
+      averageScore: '平均分数',
+      totalResponses: '总回复数',
+      noData: '该年份暂无反馈数据'
     }
   },
   form: {

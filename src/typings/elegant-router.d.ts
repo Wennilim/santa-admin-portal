@@ -22,6 +22,7 @@ declare module "@elegant-router/types" {
     "500": "/500";
     "draw": "/draw";
     "event": "/event";
+    "feedback": "/feedback";
     "home": "/home";
     "iframe-page": "/iframe-page/:url";
     "login": "/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?";
@@ -61,6 +62,7 @@ declare module "@elegant-router/types" {
     | "500"
     | "draw"
     | "event"
+    | "feedback"
     | "home"
     | "iframe-page"
     | "login"
@@ -87,6 +89,7 @@ declare module "@elegant-router/types" {
     | "login"
     | "draw"
     | "event"
+    | "feedback"
     | "home"
   >;
 

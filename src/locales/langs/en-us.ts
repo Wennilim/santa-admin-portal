@@ -233,7 +233,8 @@ const local: App.I18n.Schema = {
     'iframe-page': 'Iframe',
     home: 'Dashboard',
     draw: 'Draw & Wishlist',
-    event: 'Event Setting'
+    event: 'Event Setting',
+    feedback: 'Feedback'
   },
   page: {
     login: {
@@ -340,6 +341,19 @@ const local: App.I18n.Schema = {
       addItinerary: 'Add Itinerary',
       save: 'Save',
       saveSuccess: 'Saved Successfully'
+    },
+    feedback: {
+      title: 'Feedback Dashboard',
+      selectYear: 'Select Year',
+      overallSatisfaction: 'Overall Satisfaction',
+      satisfied: 'Satisfied',
+      neutral: 'Neutral',
+      dissatisfied: 'Dissatisfied',
+      activitySatisfaction: 'Satisfaction Per Activity',
+      futureExpectations: 'Future Expectations',
+      averageScore: 'Average Score',
+      totalResponses: 'Total Responses',
+      noData: 'No feedback data available for this year'
     }
   },
   form: {

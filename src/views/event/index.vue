@@ -79,8 +79,8 @@ onMounted(async () => {
     isEventExist.value = Boolean(data);
 
     model.value = mapApiToModel(data);
-  } catch (err) {
-    console.error(err);
+  } catch {
+    // error handling
   }
 });
 
@@ -103,8 +103,7 @@ async function handleSave() {
     }
 
     message.success($t('page.event.saveSuccess'));
-  } catch (err) {
-    console.error(err);
+  } catch {
     message.error('Save failed');
   }
 }

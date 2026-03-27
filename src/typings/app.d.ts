@@ -587,6 +587,19 @@ declare namespace App {
           save: string;
           saveSuccess: string;
         };
+        feedback: {
+          title: string;
+          selectYear: string;
+          overallSatisfaction: string;
+          satisfied: string;
+          neutral: string;
+          dissatisfied: string;
+          activitySatisfaction: string;
+          futureExpectations: string;
+          averageScore: string;
+          totalResponses: string;
+          noData: string;
+        };
       };
       form: {
         required: string;

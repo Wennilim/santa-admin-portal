@@ -102,17 +102,25 @@ const columns: DataTableColumns<RowData> = [
 </script>
 
 <template>
-  <div class="h-full px-4 py-4">
-    <NCard :title="$t('route.draw')" class="h-full rounded-16px shadow-sm" :bordered="false">
-      <NDataTable
-        :loading="loading"
-        :columns="columns"
-        :data="sortedData"
-        :pagination="{ pageSize: 10 }"
-        :bordered="false"
-        striped
-        :scroll-x="800"
-      />
+  <div class="h-full flex-col px-4 py-4">
+    <NCard
+      :title="$t('route.draw')"
+      class="flex-1 rounded-16px shadow-sm"
+      :bordered="false"
+      content-class="flex-1 flex flex-col overflow-hidden"
+    >
+      <div class="flex-1 overflow-hidden">
+        <NDataTable
+          :loading="loading"
+          :columns="columns"
+          :data="sortedData"
+          :pagination="{ pageSize: 12 }"
+          :bordered="false"
+          striped
+          scroll-x="900"
+          class="h-full"
+        />
+      </div>
     </NCard>
   </div>
 </template>

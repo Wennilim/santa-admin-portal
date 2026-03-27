@@ -62,6 +62,17 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'feedback',
+    path: '/feedback',
+    component: 'layout.base$view.feedback',
+    meta: {
+      title: 'feedback',
+      i18nKey: 'route.feedback',
+      icon: 'mdi:message',
+      order: 4
+    }
+  },
+  {
     name: 'home',
     path: '/home',
     component: 'layout.base$view.home',
