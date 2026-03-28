@@ -90,9 +90,9 @@ const columns: DataTableColumns<RowData> = [
           const res = await updateSubmitGiftStatus(row.id as string, value);
           if (!res) {
             row.hasSubmitGift = oldVal;
-            window.$message?.error('Update failed');
+            window.$message?.error($t('page.home.submitFailed'));
           } else {
-            window.$message?.success('Status updated');
+            window.$message?.success($t('page.home.submitSuccess'));
           }
         }
       });

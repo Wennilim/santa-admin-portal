@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { h } from 'vue';
-import { NButton, NPopconfirm, NTag } from 'naive-ui';
+import { NButton, NPopconfirm, NTag, useMessage } from 'naive-ui';
 import type { DataTableColumns } from 'naive-ui';
 import { deleteUser } from '@/service/api/dashboard';
 import { $t } from '@/locales';
@@ -17,12 +17,15 @@ interface Emit {
 }
 
 const emit = defineEmits<Emit>();
+const message = useMessage();
 
 async function handleDelete(id: string) {
-  const res = await deleteUser(id);
-  if (res) {
-    window.$message?.success($t('common.deleteSuccess'));
+  try {
+    await deleteUser(id);
+    message.success($t('common.deleteSuccess'));
     emit('refresh');
+  } catch {
+    message.error('Delete failed');
   }
 }
 

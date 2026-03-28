@@ -340,7 +340,9 @@ const local: App.I18n.Schema = {
       dept_design: 'Design',
       dept_management: 'Management',
       dept_frontend: 'Frontend',
-      dept_backend: 'Backend'
+      dept_backend: 'Backend',
+      submitSuccess: 'Submit Success',
+      submitFailed: 'Submit Failed'
     },
     event: {
       title: 'Event Setting',

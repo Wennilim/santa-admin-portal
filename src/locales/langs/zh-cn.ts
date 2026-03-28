@@ -336,7 +336,9 @@ const local: App.I18n.Schema = {
       dept_design: '设计部',
       dept_management: '管理部',
       dept_frontend: '前端部',
-      dept_backend: '后端部'
+      dept_backend: '后端部',
+      submitSuccess: '提交成功',
+      submitFailed: '提交失败'
     },
     event: {
       title: '活动设置',

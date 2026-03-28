@@ -585,6 +585,8 @@ declare namespace App {
           dept_management: string;
           dept_frontend: string;
           dept_backend: string;
+          submitSuccess: string;
+          submitFailed: string;
         };
         event: {
           title: string;
