@@ -8,12 +8,15 @@ import PieChart from '@/views/home/modules/pie-chart.vue';
 import CreativityBanner from '@/views/home/modules/creativity-banner.vue';
 
 const data = ref<RowData[]>([]);
+const loading = ref(false);
 
 async function getData() {
+  loading.value = true;
   const res = await getAllUsersList();
   if (res) {
     data.value = res;
   }
+  loading.value = false;
 }
 
 onMounted(() => getData());

@@ -47,7 +47,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'draw',
       i18nKey: 'route.draw',
       icon: 'mdi:gift',
-      order: 2
+      order: 3
     }
   },
   {
@@ -58,7 +58,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'event',
       i18nKey: 'route.event',
       icon: 'mdi:calendar',
-      order: 3
+      order: 4
     }
   },
   {
@@ -69,7 +69,7 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'feedback',
       i18nKey: 'route.feedback',
       icon: 'mdi:message',
-      order: 4
+      order: 5
     }
   },
   {
@@ -106,6 +106,17 @@ export const generatedRoutes: GeneratedRoute[] = [
       i18nKey: 'route.login',
       constant: true,
       hideInMenu: true
+    }
+  },
+  {
+    name: 'users',
+    path: '/users',
+    component: 'layout.base$view.users',
+    meta: {
+      title: 'users',
+      i18nKey: 'route.users',
+      icon: 'mdi:account-group-outline',
+      order: 2
     }
   }
 ];

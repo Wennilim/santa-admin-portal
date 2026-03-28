@@ -234,7 +234,8 @@ const local: App.I18n.Schema = {
     home: 'Dashboard',
     draw: 'Draw & Wishlist',
     event: 'Event Setting',
-    feedback: 'Feedback'
+    feedback: 'Feedback',
+    users: 'Users'
   },
   page: {
     login: {
@@ -325,8 +326,21 @@ const local: App.I18n.Schema = {
       hasNotSubmitGift: 'Has Not Submit Gift',
       hasSubmitGiftStatus: 'Has Submit Gift?',
       howManyUserSubmitGiftStatus: 'How many user submit gift status?',
+      participants: 'Participants List',
       name: 'Name',
-      email: 'Email'
+      email: 'Email',
+      gender: 'Gender',
+      department: 'Department',
+      gender_male: 'Male',
+      gender_female: 'Female',
+      dept_operation: 'Operation',
+      dept_ai: 'AI',
+      dept_bqa: 'BQA',
+      dept_rnd: 'R&D',
+      dept_design: 'Design',
+      dept_management: 'Management',
+      dept_frontend: 'Frontend',
+      dept_backend: 'Backend'
     },
     event: {
       title: 'Event Setting',

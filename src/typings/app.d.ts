@@ -570,8 +570,21 @@ declare namespace App {
           hasNotSubmitGift: string;
           hasSubmitGiftStatus: string;
           howManyUserSubmitGiftStatus: string;
+          participants: string;
           name: string;
           email: string;
+          gender: string;
+          department: string;
+          gender_male: string;
+          gender_female: string;
+          dept_operation: string;
+          dept_ai: string;
+          dept_bqa: string;
+          dept_rnd: string;
+          dept_design: string;
+          dept_management: string;
+          dept_frontend: string;
+          dept_backend: string;
         };
         event: {
           title: string;

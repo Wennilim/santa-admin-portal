@@ -230,7 +230,8 @@ const local: App.I18n.Schema = {
     home: '仪表盘',
     draw: '抽奖 & 愿望',
     event: '活动设置',
-    feedback: '反馈'
+    feedback: '反馈',
+    users: '用户管理'
   },
   page: {
     login: {
@@ -321,8 +322,21 @@ const local: App.I18n.Schema = {
       hasNotSubmitGift: '未提交礼物',
       hasSubmitGiftStatus: '提交礼物了吗?',
       howManyUserSubmitGiftStatus: '有多少用户提交了礼物?',
+      participants: '参与者列表',
       name: '姓名',
-      email: '邮箱'
+      email: '邮箱',
+      gender: '性别',
+      department: '部门',
+      gender_male: '男',
+      gender_female: '女',
+      dept_operation: '运营部',
+      dept_ai: 'AI 部门',
+      dept_bqa: 'BQA 部门',
+      dept_rnd: '研发部',
+      dept_design: '设计部',
+      dept_management: '管理部',
+      dept_frontend: '前端部',
+      dept_backend: '后端部'
     },
     event: {
       title: '活动设置',

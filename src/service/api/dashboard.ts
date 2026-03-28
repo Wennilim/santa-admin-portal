@@ -21,6 +21,15 @@ export const getAllUsersList = async () => {
   return data;
 };
 
+export const deleteUser = async (userId: string) => {
+  const { data } = await request({
+    url: `/users/${userId}`,
+    method: 'DELETE'
+  });
+
+  return data;
+};
+
 export const updateSubmitGiftStatus = async (userId: string, hasSubmitGift: boolean) => {
   const { data } = await request({
     url: `/send-wishlist/submit-gift`,
