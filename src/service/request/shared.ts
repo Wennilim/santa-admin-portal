@@ -64,20 +64,28 @@ export function showErrorMsg(state: RequestInstanceState, message: string) {
   }
 }
 
+let isLogoutModalOpen = false;
+
 export function logoutModal(message: string, code: number) {
+  if (isLogoutModalOpen || !window.$dialog) {
+    return;
+  }
+
+  isLogoutModalOpen = true;
   const { resetStore } = useAuthStore();
 
-  window.$dialog?.error({
+  const cleanup = () => {
+    isLogoutModalOpen = false;
+    resetStore();
+  };
+
+  window.$dialog.error({
     title: `${$t('common.error')} ${code}`,
     content: message,
     positiveText: $t('common.confirm'),
     maskClosable: false,
     closeOnEsc: false,
-    onPositiveClick() {
-      resetStore();
-    },
-    onClose() {
-      resetStore();
-    }
+    onPositiveClick: cleanup,
+    onClose: cleanup
   });
 }

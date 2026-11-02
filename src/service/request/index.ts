@@ -7,7 +7,7 @@ import { $t } from '@/locales';
 import { getAuthorization, handleExpiredRequest, logoutModal, showErrorMsg } from './shared';
 import type { RequestInstanceState } from './type';
 
-const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'N';
+const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'Y';
 const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
 
 const isLogin = window.location.pathname.includes('/login');

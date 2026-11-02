@@ -602,6 +602,42 @@ declare namespace App {
           save: string;
           saveSuccess: string;
         };
+        setting: {
+          title: string;
+          description: string;
+          drawMode: string;
+          manual: string;
+          auto: string;
+          manualDescription: string;
+          autoDescription: string;
+          drawDate: string;
+          drawDateRequired: string;
+          yearlySchedule: string;
+          currentStatus: string;
+          status: {
+            pending: string;
+            generated: string;
+            revealed: string;
+          };
+          unsaved: string;
+          save: string;
+          saveSuccess: string;
+          saveFailed: string;
+          actions: string;
+          autoActionHint: string;
+          generate: string;
+          generateSuccess: string;
+          generateFailed: string;
+          reveal: string;
+          revealSuccess: string;
+          revealFailed: string;
+          deleteResult: string;
+          deleteConfirmTitle: string;
+          deleteConfirmContent: string;
+          deleteSuccess: string;
+          deleteFailed: string;
+          eventRequired: string;
+        };
         feedback: {
           title: string;
           selectYear: string;

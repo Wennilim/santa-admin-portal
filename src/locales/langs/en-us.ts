@@ -235,6 +235,7 @@ const local: App.I18n.Schema = {
     draw: 'Draw & Wishlist',
     event: 'Event Setting',
     feedback: 'Feedback',
+    setting: 'Setting',
     users: 'Users'
   },
   page: {
@@ -357,6 +358,42 @@ const local: App.I18n.Schema = {
       addItinerary: 'Add Itinerary',
       save: 'Save',
       saveSuccess: 'Saved Successfully'
+    },
+    setting: {
+      title: 'Draw Setting',
+      description: 'Choose how the yearly Secret Santa draw is generated and manage the current draw result.',
+      drawMode: 'Draw Mode',
+      manual: 'Manual',
+      auto: 'Auto',
+      manualDescription: 'Admin generates the draw manually, then reveals it manually.',
+      autoDescription: 'The server generates the draw at the scheduled time; admin still reveals it manually.',
+      drawDate: 'Automatic Draw Date',
+      drawDateRequired: 'Please select an automatic draw date.',
+      yearlySchedule: 'Runs every year on this month and day at 00:00 (Malaysia/Singapore time).',
+      currentStatus: 'Current Year Status',
+      status: {
+        pending: 'Pending',
+        generated: 'Generated',
+        revealed: 'Revealed'
+      },
+      unsaved: 'Unsaved changes',
+      save: 'Save Setting',
+      saveSuccess: 'Draw setting saved.',
+      saveFailed: 'Failed to save draw setting.',
+      actions: 'Draw Actions',
+      autoActionHint: 'The server will generate automatically. After generation, use Reveal Draw below.',
+      generate: 'Generate Draw',
+      generateSuccess: 'Draw generated.',
+      generateFailed: 'Failed to generate draw.',
+      reveal: 'Reveal Draw',
+      revealSuccess: 'Draw revealed.',
+      revealFailed: 'Failed to reveal draw.',
+      deleteResult: 'Delete Draw Result',
+      deleteConfirmTitle: 'Delete this year’s draw?',
+      deleteConfirmContent: 'This permanently deletes the generated pairings for the current year.',
+      deleteSuccess: 'Draw result deleted.',
+      deleteFailed: 'Failed to delete draw result.',
+      eventRequired: 'Please create the Event Setting before configuring the draw.'
     },
     feedback: {
       title: 'Feedback Dashboard',

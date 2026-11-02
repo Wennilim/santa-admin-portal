@@ -231,6 +231,7 @@ const local: App.I18n.Schema = {
     draw: '抽奖 & 愿望',
     event: '活动设置',
     feedback: '反馈',
+    setting: '设置',
     users: '用户管理'
   },
   page: {
@@ -353,6 +354,42 @@ const local: App.I18n.Schema = {
       addItinerary: '添加行程',
       save: '保存',
       saveSuccess: '保存成功'
+    },
+    setting: {
+      title: '抽奖设置',
+      description: '设置每年的抽奖生成方式，并管理本年度的抽奖结果。',
+      drawMode: '抽奖模式',
+      manual: '手动',
+      auto: '自动',
+      manualDescription: '由管理员手动生成抽奖，再手动揭晓。',
+      autoDescription: '由服务器按设定时间自动生成，管理员仍需手动揭晓。',
+      drawDate: '自动抽奖日期',
+      drawDateRequired: '请选择自动抽奖日期。',
+      yearlySchedule: '系统将在每年该月该日的新马时间 00:00 自动生成抽奖。',
+      currentStatus: '本年度状态',
+      status: {
+        pending: '未生成',
+        generated: '已生成',
+        revealed: '已揭晓'
+      },
+      unsaved: '有未保存的修改',
+      save: '保存设置',
+      saveSuccess: '抽奖设置已保存。',
+      saveFailed: '抽奖设置保存失败。',
+      actions: '抽奖操作',
+      autoActionHint: '服务器会自动生成抽奖；生成后，请在下方手动揭晓。',
+      generate: '生成抽奖',
+      generateSuccess: '抽奖已生成。',
+      generateFailed: '生成抽奖失败。',
+      reveal: '揭晓抽奖',
+      revealSuccess: '抽奖已揭晓。',
+      revealFailed: '揭晓抽奖失败。',
+      deleteResult: '删除抽奖结果',
+      deleteConfirmTitle: '删除本年度抽奖？',
+      deleteConfirmContent: '此操作会永久删除本年度已经生成的配对结果。',
+      deleteSuccess: '抽奖结果已删除。',
+      deleteFailed: '删除抽奖结果失败。',
+      eventRequired: '请先完成活动设置，再配置抽奖。'
     },
     feedback: {
       title: '反馈仪表盘',

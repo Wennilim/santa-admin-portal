@@ -109,6 +109,17 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'setting',
+    path: '/setting',
+    component: 'layout.base$view.setting',
+    meta: {
+      title: 'setting',
+      i18nKey: 'route.setting',
+      icon: 'mdi:cog-outline',
+      order: 6
+    }
+  },
+  {
     name: 'users',
     path: '/users',
     component: 'layout.base$view.users',

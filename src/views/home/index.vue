@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue';
 import type { RowData } from 'naive-ui/es/data-table/src/interface';
-import { getAllUsersList, revealDraw } from '@/service/api/dashboard';
+import { getAllUsersList, getDrawStatus, revealDraw } from '@/service/api/dashboard';
+import type { DrawStatus } from '@/service/api/dashboard';
 import { $t } from '@/locales';
 import DonutChart from '@/views/home/modules/donut-chart.vue';
 import PieChart from '@/views/home/modules/pie-chart.vue';
@@ -9,6 +10,7 @@ import CreativityBanner from '@/views/home/modules/creativity-banner.vue';
 
 const data = ref<RowData[]>([]);
 const loading = ref(false);
+const drawStatus = ref<DrawStatus>('pending');
 
 async function getData() {
   loading.value = true;
@@ -19,7 +21,10 @@ async function getData() {
   loading.value = false;
 }
 
-onMounted(() => getData());
+onMounted(async () => {
+  const [, result] = await Promise.all([getData(), getDrawStatus()]);
+  drawStatus.value = result?.status ?? 'pending';
+});
 
 const spinData = computed(() => {
   const hasSpin = data.value.filter(item => item.hasSpin).length;
@@ -48,8 +53,9 @@ const hasSubmitGiftData = computed(() => {
   ];
 });
 
-const handleRevealDraw = () => {
-  revealDraw();
+const handleRevealDraw = async () => {
+  const result = await revealDraw();
+  if (result) drawStatus.value = 'revealed';
 };
 
 const now = new Date();
@@ -62,7 +68,10 @@ const isRevealPeriod = now >= start && now <= end;
 
 <template>
   <div class="flex flex-col">
-    <div v-if="isRevealPeriod" class="mb-2 flex items-center justify-between bg-amber-100 px-4 py-2">
+    <div
+      v-if="isRevealPeriod && drawStatus === 'generated'"
+      class="mb-2 flex items-center justify-between bg-amber-100 px-4 py-2"
+    >
       <p>{{ $t('page.home.noticeMsg') }}</p>
       <button class="rounded-lg bg-amber-200 p-2" @click="handleRevealDraw">{{ $t('page.home.revealDraw') }}</button>
     </div>

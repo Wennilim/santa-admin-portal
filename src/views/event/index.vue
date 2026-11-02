@@ -72,7 +72,7 @@ onMounted(async () => {
   try {
     const res = await getEvent();
 
-    const data = res?.data?.data || res?.data || res;
+    const data = res;
 
     if (!data) return;
 
